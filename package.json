@@ -1,0 +1,23 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "\"\"\u001b[Drealizar un pokedex como ejercicio\"",
+  "main": "poxedex.json",
+  "scripts": {
+    "test": "\u001b[A\u001b[B"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zitle-Nancy/pokedex.git"
+  },
+  "keywords": [
+    "pokedex",
+    "json"
+  ],
+  "author": "Nancy Zitle Juarez <ancizj393@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zitle-Nancy/pokedex/issues"
+  },
+  "homepage": "https://github.com/Zitle-Nancy/pokedex#readme"
+}

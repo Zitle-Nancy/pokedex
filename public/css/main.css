@@ -1,0 +1,19 @@
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100vh;
+}
+.imagen-pokemon{
+	border: solid red 1px;
+	margin-top:10px;
+	height: 100%;
+	width: 100px;
+}
+.texto-centrado{
+	text-align: center;
+}
+.fotoPokemon{
+	width: 100%;
+	height: 100%;
+}
