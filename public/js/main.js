@@ -1,25 +1,45 @@
-var cargarPagina = function() {
-	// alert('cargada');
-	var xhr = new XMLHttpRequest();
-	$.getJSON('http://pokeapi.co/api/v2/pokemon/', function(data){
-		// console.log(this.data);
-		var listaPokemons = data.results;
-		// return listaPokemons;
-		//si ponemos parametros en la funcion cuando la mandas a llamar tambien se lo asignas
-		traerPokemons(listaPokemons);
+// XMLHttpRequest
+
+var cargarPagina = function () {
+	cargarPokemones();
+	$(document).on("click", ".pokemon", obtenerDetallePokemon);
+};
+var contador = 0;
+var cargarPokemones = function () {
+	var url = 'https://pokeapi.co/api/v2/pokemon';
+	$.getJSON(url, mostrarPokemones);
+};
+var contenedorImagenes = $('.seccion-fotos');
+var mostrarPokemones = function (response) {
+	var pokemones = response.results;
+	pokemones.forEach(function (pokemon, indice) {
+		contador ++; 
+		var nombrePokemon = pokemon.name;
+		var urlPokemon = pokemon.url.replace("pokemon", "pokemon-species");
+		var $div = $('<div />');
+		var $parrafo = $("<p />").text(nombrePokemon);
+		$parrafo.addClass("pokemon");
+		$parrafo.attr("data-url", urlPokemon);
+		var $img = $("<img />", {
+			class: 'imagen-pokemon',
+			src: "./assets/img/" + contador + ".jpg",
+			alt: nombrePokemon
+		});
+		$div.append($img);
+		$(".seccion-fotos").append($div);
+		$(".seccion-fotos").append($parrafo);
 	});
 };
 
-function traerPokemons(listaPokemons){
-	var ul = $('#pokemons');
-	listaPokemons.forEach(function(pokemon){
-		var li = $('<li/>');
-		li.text(pokemon.name);
-		ul.append(li);
-
-	});
+var obtenerDetallePokemon = function () {
+	var url = $(this).data("url");
+	$.getJSON(url, mostrarDetallePokemon);
 };
 
-
+var mostrarDetallePokemon = function (response) {
+	var habitat = response.habitat.name;
+	var genero = response.genera[0].genus;
+	alert(habitat +' ' +genero);
+};
 
 $(document).ready(cargarPagina);

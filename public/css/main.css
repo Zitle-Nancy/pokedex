@@ -5,9 +5,9 @@ body{
 	height: 100vh;
 }
 .imagen-pokemon{
-	border: solid red 1px;
+	/*border: solid red 1px;*/
 	margin-top:10px;
-	height: 100%;
+	height: 100px;
 	width: 100px;
 }
 .texto-centrado{
@@ -16,4 +16,7 @@ body{
 .fotoPokemon{
 	width: 100%;
 	height: 100%;
+}
+.pokemon{
+	font-size: 2rem;
 }
